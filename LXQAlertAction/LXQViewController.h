@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LXQViewController.h
 //  LXQAlertAction
 //
 //  Created by 用户 on 16/7/29.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface LXQViewController : UIViewController
 
 @end
-

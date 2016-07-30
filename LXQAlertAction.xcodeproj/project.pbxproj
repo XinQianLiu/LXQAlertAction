@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		B6A6A0F81D4AE27D002DAE1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A0F71D4AE27D002DAE1D /* main.m */; };
 		B6A6A0FB1D4AE27D002DAE1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A0FA1D4AE27D002DAE1D /* AppDelegate.m */; };
-		B6A6A0FE1D4AE27D002DAE1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A0FD1D4AE27D002DAE1D /* ViewController.m */; };
 		B6A6A1011D4AE27D002DAE1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A6A0FF1D4AE27D002DAE1D /* Main.storyboard */; };
 		B6A6A1031D4AE27D002DAE1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A6A1021D4AE27D002DAE1D /* Assets.xcassets */; };
 		B6A6A1061D4AE27D002DAE1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A6A1041D4AE27D002DAE1D /* LaunchScreen.storyboard */; };
 		B6A6A1111D4AE27D002DAE1D /* LXQAlertActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A1101D4AE27D002DAE1D /* LXQAlertActionTests.m */; };
 		B6A6A11C1D4AE27D002DAE1D /* LXQAlertActionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A11B1D4AE27D002DAE1D /* LXQAlertActionUITests.m */; };
+		B6A6A12B1D4AE293002DAE1D /* LXQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A12A1D4AE293002DAE1D /* LXQViewController.m */; };
+		B6A6A12E1D4AE2A6002DAE1D /* LXQAlertActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A12D1D4AE2A6002DAE1D /* LXQAlertActionView.m */; };
+		B6A6A1311D4AFD93002DAE1D /* UIWindow+LXQWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A1301D4AFD93002DAE1D /* UIWindow+LXQWindow.m */; };
+		B6A6A1341D4B5343002DAE1D /* LXQTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A1331D4B5343002DAE1D /* LXQTestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +42,6 @@
 		B6A6A0F71D4AE27D002DAE1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B6A6A0F91D4AE27D002DAE1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B6A6A0FA1D4AE27D002DAE1D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B6A6A0FC1D4AE27D002DAE1D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B6A6A0FD1D4AE27D002DAE1D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B6A6A1001D4AE27D002DAE1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6A6A1021D4AE27D002DAE1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6A6A1051D4AE27D002DAE1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +52,14 @@
 		B6A6A1171D4AE27D002DAE1D /* LXQAlertActionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LXQAlertActionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A6A11B1D4AE27D002DAE1D /* LXQAlertActionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXQAlertActionUITests.m; sourceTree = "<group>"; };
 		B6A6A11D1D4AE27D002DAE1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6A6A1291D4AE293002DAE1D /* LXQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXQViewController.h; sourceTree = "<group>"; };
+		B6A6A12A1D4AE293002DAE1D /* LXQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXQViewController.m; sourceTree = "<group>"; };
+		B6A6A12C1D4AE2A6002DAE1D /* LXQAlertActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXQAlertActionView.h; sourceTree = "<group>"; };
+		B6A6A12D1D4AE2A6002DAE1D /* LXQAlertActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXQAlertActionView.m; sourceTree = "<group>"; };
+		B6A6A12F1D4AFD93002DAE1D /* UIWindow+LXQWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+LXQWindow.h"; sourceTree = "<group>"; };
+		B6A6A1301D4AFD93002DAE1D /* UIWindow+LXQWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+LXQWindow.m"; sourceTree = "<group>"; };
+		B6A6A1321D4B5343002DAE1D /* LXQTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXQTestViewController.h; sourceTree = "<group>"; };
+		B6A6A1331D4B5343002DAE1D /* LXQTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXQTestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +87,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B64844FA1D4C82ED007BCF97 /* LXQAlertAction */ = {
+			isa = PBXGroup;
+			children = (
+				B6A6A12C1D4AE2A6002DAE1D /* LXQAlertActionView.h */,
+				B6A6A12D1D4AE2A6002DAE1D /* LXQAlertActionView.m */,
+				B6A6A12F1D4AFD93002DAE1D /* UIWindow+LXQWindow.h */,
+				B6A6A1301D4AFD93002DAE1D /* UIWindow+LXQWindow.m */,
+			);
+			name = LXQAlertAction;
+			sourceTree = "<group>";
+		};
 		B6A6A0EA1D4AE27D002DAE1D = {
 			isa = PBXGroup;
 			children = (
@@ -101,10 +121,13 @@
 		B6A6A0F51D4AE27D002DAE1D /* LXQAlertAction */ = {
 			isa = PBXGroup;
 			children = (
+				B64844FA1D4C82ED007BCF97 /* LXQAlertAction */,
 				B6A6A0F91D4AE27D002DAE1D /* AppDelegate.h */,
 				B6A6A0FA1D4AE27D002DAE1D /* AppDelegate.m */,
-				B6A6A0FC1D4AE27D002DAE1D /* ViewController.h */,
-				B6A6A0FD1D4AE27D002DAE1D /* ViewController.m */,
+				B6A6A1291D4AE293002DAE1D /* LXQViewController.h */,
+				B6A6A12A1D4AE293002DAE1D /* LXQViewController.m */,
+				B6A6A1321D4B5343002DAE1D /* LXQTestViewController.h */,
+				B6A6A1331D4B5343002DAE1D /* LXQTestViewController.m */,
 				B6A6A0FF1D4AE27D002DAE1D /* Main.storyboard */,
 				B6A6A1021D4AE27D002DAE1D /* Assets.xcassets */,
 				B6A6A1041D4AE27D002DAE1D /* LaunchScreen.storyboard */,
@@ -270,9 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6A6A0FE1D4AE27D002DAE1D /* ViewController.m in Sources */,
+				B6A6A1311D4AFD93002DAE1D /* UIWindow+LXQWindow.m in Sources */,
 				B6A6A0FB1D4AE27D002DAE1D /* AppDelegate.m in Sources */,
+				B6A6A12E1D4AE2A6002DAE1D /* LXQAlertActionView.m in Sources */,
 				B6A6A0F81D4AE27D002DAE1D /* main.m in Sources */,
+				B6A6A1341D4B5343002DAE1D /* LXQTestViewController.m in Sources */,
+				B6A6A12B1D4AE293002DAE1D /* LXQViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +524,7 @@
 				B6A6A1221D4AE27D002DAE1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6A6A1231D4AE27D002DAE1D /* Build configuration list for PBXNativeTarget "LXQAlertActionTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +533,7 @@
 				B6A6A1251D4AE27D002DAE1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6A6A1261D4AE27D002DAE1D /* Build configuration list for PBXNativeTarget "LXQAlertActionUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +542,7 @@
 				B6A6A1281D4AE27D002DAE1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
