@@ -11,7 +11,7 @@ The sample code, details the Demo:
 UIColor *blackColor = [UIColor blackColor]; 
 UIColor *redColor = [UIColor redColor];
 LXQAlertActionView *alertActionView = [[LXQAlertActionView alloc] initWithTitlesArray:@[@"访问相册", @"访问相机", @"取消"] titleColorsArray:@[blackColor, blackColor, redColor] backgroundColorsArray:nil];
-[alertActionView showTheViewWithTouchDoneBlock:^(NSInteger touchIndex) {
+[alertActionView showWithTouchDone:^(NSInteger touchIndex) {
     if (touchIndex == 1001) {
         LXQTestViewController *vc = [[LXQTestViewController alloc] init];
         [self presentViewController:vc animated:YES completion:nil];

@@ -41,7 +41,7 @@
     }
     
     
-    [_alertActionView showTheViewWithTouchDoneBlock:^(NSInteger touchIndex) {
+    [_alertActionView showWithTouchDone:^(NSInteger touchIndex) {
         if (touchIndex == 1001) {
             LXQTestViewController *vc = [[LXQTestViewController alloc] init];
             [self presentViewController:vc animated:YES completion:nil];

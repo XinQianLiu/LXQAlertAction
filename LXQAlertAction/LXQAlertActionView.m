@@ -183,13 +183,13 @@
 
 #pragma mark - Public methods
 // Display View
-- (void)showTheViewWithTouchDoneBlock:(TouchDoneBlock)touchDoneBlock
+- (void)showWithTouchDone:(TouchDoneBlock)touchDone
 {
     NSAssert([NSThread isMainThread], @"\nERROR-->  View must be displayed in the main thread\nfunction-->  - (void)showTheViewWithTouchDoneBlock:(TouchDoneBlock)touchDoneBlock");
     NSAssert(_titlesArray.count > 0, @"\nERROR-->  Titles array must be greater than 0\nfunction-->  - (void)showTheViewWithTouchDoneBlock:(TouchDoneBlock)touchDoneBlock");
     
-    if (touchDoneBlock) {
-        _touchDoneBlock = touchDoneBlock;
+    if (touchDone) {
+        _touchDoneBlock = touchDone;
     }
     
     [self addOverlayWindow];

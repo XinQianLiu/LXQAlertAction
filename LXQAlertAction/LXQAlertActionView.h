@@ -50,7 +50,7 @@ typedef void(^TouchDoneBlock)(NSInteger touchIndex);
  *
  *  @param touchDoneBlock touch feedback
  */
-- (void)showTheViewWithTouchDoneBlock:(TouchDoneBlock)touchDoneBlock;
+- (void)showWithTouchDone:(TouchDoneBlock)touchDone;
 
 
 
