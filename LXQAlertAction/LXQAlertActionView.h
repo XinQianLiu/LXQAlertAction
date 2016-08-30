@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIWindow+LXQWindow.h"
 
 /**
  *  touch feedback
@@ -32,7 +31,6 @@ typedef void(^TouchDoneBlock)(NSInteger touchIndex);
 
 
 @property (nonatomic, readonly, strong) UIWindow                    *overlayWindow;
-@property (nonatomic, readonly, strong) UIWindow                    *keyWindow;
 @property (nonatomic, readonly, strong) UIView                      *KBackgroundView;
 // Default [[UIColor whiteColor] colorWithAlphaComponent:0.5f]
 @property (nonatomic, strong) UIColor                               *KBackgroundViewBackgroundColor;

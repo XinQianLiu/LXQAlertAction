@@ -50,21 +50,14 @@
             
         }
         else if (touchIndex == 1003){
-            [_alertActionView dismiss];
-//            _alertActionView = nil;
+
         }
         else{// As UITapGestureRecognizer trigger , if touchIndex == 10000
-            [_alertActionView dismiss];
-//            _alertActionView = nil;
+
         }
     }];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [_alertActionView dismiss];
-    _alertActionView = nil;
-}
 /*
 #pragma mark - Navigation
 

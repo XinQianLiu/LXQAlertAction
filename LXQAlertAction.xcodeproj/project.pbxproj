@@ -16,7 +16,6 @@
 		B6A6A11C1D4AE27D002DAE1D /* LXQAlertActionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A11B1D4AE27D002DAE1D /* LXQAlertActionUITests.m */; };
 		B6A6A12B1D4AE293002DAE1D /* LXQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A12A1D4AE293002DAE1D /* LXQViewController.m */; };
 		B6A6A12E1D4AE2A6002DAE1D /* LXQAlertActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A12D1D4AE2A6002DAE1D /* LXQAlertActionView.m */; };
-		B6A6A1311D4AFD93002DAE1D /* UIWindow+LXQWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A1301D4AFD93002DAE1D /* UIWindow+LXQWindow.m */; };
 		B6A6A1341D4B5343002DAE1D /* LXQTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A6A1331D4B5343002DAE1D /* LXQTestViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -56,8 +55,6 @@
 		B6A6A12A1D4AE293002DAE1D /* LXQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXQViewController.m; sourceTree = "<group>"; };
 		B6A6A12C1D4AE2A6002DAE1D /* LXQAlertActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXQAlertActionView.h; sourceTree = "<group>"; };
 		B6A6A12D1D4AE2A6002DAE1D /* LXQAlertActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXQAlertActionView.m; sourceTree = "<group>"; };
-		B6A6A12F1D4AFD93002DAE1D /* UIWindow+LXQWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+LXQWindow.h"; sourceTree = "<group>"; };
-		B6A6A1301D4AFD93002DAE1D /* UIWindow+LXQWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+LXQWindow.m"; sourceTree = "<group>"; };
 		B6A6A1321D4B5343002DAE1D /* LXQTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXQTestViewController.h; sourceTree = "<group>"; };
 		B6A6A1331D4B5343002DAE1D /* LXQTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXQTestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,8 +89,6 @@
 			children = (
 				B6A6A12C1D4AE2A6002DAE1D /* LXQAlertActionView.h */,
 				B6A6A12D1D4AE2A6002DAE1D /* LXQAlertActionView.m */,
-				B6A6A12F1D4AFD93002DAE1D /* UIWindow+LXQWindow.h */,
-				B6A6A1301D4AFD93002DAE1D /* UIWindow+LXQWindow.m */,
 			);
 			name = LXQAlertAction;
 			sourceTree = "<group>";
@@ -293,7 +288,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6A6A1311D4AFD93002DAE1D /* UIWindow+LXQWindow.m in Sources */,
 				B6A6A0FB1D4AE27D002DAE1D /* AppDelegate.m in Sources */,
 				B6A6A12E1D4AE2A6002DAE1D /* LXQAlertActionView.m in Sources */,
 				B6A6A0F81D4AE27D002DAE1D /* main.m in Sources */,

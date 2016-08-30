@@ -11,15 +11,12 @@
 @class LXQRootViewController;
 @interface LXQAlertActionView ()
 
-@property (nonatomic, assign) CGFloat screenHeight;
-@property (nonatomic, assign) CGFloat screenWidth;
 @property (nonatomic, assign) CGFloat whiteBackgroundViewHeight;
 @property (nonatomic, strong) NSLayoutConstraint *KBackgroundViewConstraintBottom;
 @property (nonatomic, strong) LXQRootViewController *roorViewController;
 
 - (void)setup;
 - (void)displayTheViewAnimation;
-- (void)resetTransition;
 
 @end
 
@@ -47,82 +44,6 @@
     [_alertActionView displayTheViewAnimation];
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [_alertActionView resetTransition];
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-
-}
-
-#ifdef __IPHONE_7_0
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
-        [self setNeedsStatusBarAppearanceUpdate];
-    }
-}
-#endif
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    UIViewController *viewController = [_alertActionView.keyWindow currentViewController];
-    
-    if (viewController) {
-        return [viewController supportedInterfaceOrientations];
-    }
-    
-    return UIInterfaceOrientationMaskAll;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-    UIViewController *viewController = [_alertActionView.keyWindow currentViewController];
-    
-    if (viewController) {
-        return [viewController shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
-    }
-    
-    return YES;
-}
-
-- (BOOL)shouldAutorotate
-{
-    UIViewController *viewController = [_alertActionView.keyWindow currentViewController];
-    
-    if (viewController) {
-        return [viewController shouldAutorotate];
-    }
-    
-    return YES;
-}
-
-#ifdef __IPHONE_7_0
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    UIWindow *window = _alertActionView.keyWindow;
-    
-    if (!window) {
-        window = [UIApplication sharedApplication].keyWindow;
-    }
-    
-    return [[window viewControllerForStatusBarStyle] preferredStatusBarStyle];
-}
-
-- (BOOL)prefersStatusBarHidden
-{
-    UIWindow *window = _alertActionView.keyWindow;
-    
-    if (!window) {
-        window = [UIApplication sharedApplication].keyWindow;
-    }
-    
-    return [[window viewControllerForStatusBarHidden] prefersStatusBarHidden];
-}
-#endif
-
 #ifdef DEBUG
 - (void)dealloc
 {
@@ -141,9 +62,10 @@
     if (self) {
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.1f];
         self.frame = [UIScreen mainScreen].bounds;
-        [self setTapGestureRecognizer];
-        _screenHeight = [UIScreen mainScreen].bounds.size.height;
-        _screenWidth = [UIScreen mainScreen].bounds.size.width;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+        tap.numberOfTapsRequired = 1;
+        tap.numberOfTouchesRequired = 1;
+        [self addGestureRecognizer:tap];
         _whiteBackgroundViewHeight = titlesArray.count * 40 + (titlesArray.count - 1) * 10;
         _titlesArray = titlesArray;
         _titleColorsArray = titleColorsArray;
@@ -156,20 +78,6 @@
 
 #pragma mark - Private methods
 - (void)setup
-{
-    [self addWhiteBackgroundView];
-    [self addAlertActionButton];
-}
-
-- (void)setTapGestureRecognizer
-{
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-    tap.numberOfTapsRequired = 1;
-    tap.numberOfTouchesRequired = 1;
-    [self addGestureRecognizer:tap];
-}
-
-- (void)addWhiteBackgroundView
 {
     if (!_KBackgroundView) {
         _KBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -185,42 +93,41 @@
         _KBackgroundViewConstraintBottom = [NSLayoutConstraint constraintWithItem:_KBackgroundView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:_whiteBackgroundViewHeight];
         [self addConstraint:_KBackgroundViewConstraintBottom];
     }
-}
-
-- (void)addAlertActionButton
-{
-    NSInteger   count = _titlesArray.count;
-    NSString    *title;
-    UIColor     *titleColor;
-    UIColor     *backgroundColor;
     
-    for (int i = 0; i < count; i++) {
-        title = _titlesArray[i];
+    if (_alertActionButtonArray.count <= 0) {
+        NSInteger   count = _titlesArray.count;
+        NSString    *title;
+        UIColor     *titleColor;
+        UIColor     *backgroundColor;
         
-        if (_titleColorsArray.count == _titlesArray.count) {
-            titleColor = _titleColorsArray[i];
+        for (int i = 0; i < count; i++) {
+            title = _titlesArray[i];
+            
+            if (_titleColorsArray.count == _titlesArray.count) {
+                titleColor = _titleColorsArray[i];
+            }
+            else {
+                titleColor = [UIColor blackColor];
+            }
+            
+            if (_backgroundColorsArray.count == _titlesArray.count) {
+                backgroundColor = _backgroundColorsArray[i];
+            }
+            else {
+                backgroundColor = [UIColor whiteColor];
+            }
+            
+            UIButton *alertActionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [alertActionButton setTitle:title forState:UIControlStateNormal];
+            [alertActionButton setTitleColor:titleColor forState:UIControlStateNormal];
+            [alertActionButton setBackgroundColor:backgroundColor];
+            alertActionButton.tag = 1001 + i;
+            [alertActionButton addTarget:self action:@selector(alertActionButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            alertActionButton.translatesAutoresizingMaskIntoConstraints = NO;
+            [_KBackgroundView addSubview:alertActionButton];
+            [self setButtonLayout:alertActionButton index:i];
+            [_alertActionButtonArray addObject:alertActionButton];
         }
-        else {
-            titleColor = [UIColor blackColor];
-        }
-        
-        if (_backgroundColorsArray.count == _titlesArray.count) {
-            backgroundColor = _backgroundColorsArray[i];
-        }
-        else {
-            backgroundColor = [UIColor whiteColor];
-        }
-        
-        UIButton *alertActionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [alertActionButton setTitle:title forState:UIControlStateNormal];
-        [alertActionButton setTitleColor:titleColor forState:UIControlStateNormal];
-        [alertActionButton setBackgroundColor:backgroundColor];
-        alertActionButton.tag = 1001 + i;
-        [alertActionButton addTarget:self action:@selector(alertActionButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        alertActionButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [_KBackgroundView addSubview:alertActionButton];
-        [self setButtonLayout:alertActionButton index:i];
-        [_alertActionButtonArray addObject:alertActionButton];
     }
 }
 
@@ -234,29 +141,17 @@
 
 - (void)addOverlayWindow
 {
-    [self addKeyWindow];
-    [self addRootViewController];
+    if (!_roorViewController) {
+        _roorViewController = [[LXQRootViewController alloc] initWithNibName:nil bundle:nil];
+        _roorViewController.alertActionView = self;
+    }
+    
     if (!_overlayWindow) {
         _overlayWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
         _overlayWindow.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _overlayWindow.opaque = NO;
         _overlayWindow.rootViewController = _roorViewController;
-        [_overlayWindow makeKeyAndVisible];
-    }
-}
-
-- (void)addKeyWindow
-{
-    if (!_keyWindow) {
-        _keyWindow = [UIApplication sharedApplication].keyWindow;
-    }
-}
-
-- (void)addRootViewController
-{
-    if (!_roorViewController) {
-        _roorViewController = [[LXQRootViewController alloc] initWithNibName:nil bundle:nil];
-        _roorViewController.alertActionView = self;
+        _overlayWindow.hidden = NO;
     }
 }
 
@@ -286,12 +181,6 @@
     }];
 }
 
-- (void)resetTransition
-{
-    [_KBackgroundView.layer removeAllAnimations];
-    [self.layer removeAllAnimations];
-}
-
 #pragma mark - Public methods
 // Display View
 - (void)showTheViewWithTouchDoneBlock:(TouchDoneBlock)touchDoneBlock
@@ -311,40 +200,23 @@
 {
     [self removeTheViewAnimationDone:^{
         [self removeFromSuperview];
-        [_KBackgroundView removeFromSuperview];
-        _KBackgroundView = nil;
         
         for (UIButton *bt in _alertActionButtonArray) {
             [bt removeFromSuperview];
         }
         
         [_alertActionButtonArray removeAllObjects];
-        
         _roorViewController = nil;
-        
-        if (_overlayWindow) {
-            [_overlayWindow removeFromSuperview];
-            NSMutableArray *windows = (NSMutableArray *)[UIApplication sharedApplication].windows;
-            [windows removeObject:_overlayWindow];
-            _overlayWindow = nil;
-            [windows enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(UIWindow *window, NSUInteger idx, BOOL *_Nonnull stop) {
-                if ([window isKindOfClass:[UIWindow class]] && (window.windowLevel == UIWindowLevelNormal)) {
-                    [window makeKeyWindow];
-                    *stop = YES;
-                }
-            }];
-        }
-        
-        if (_keyWindow) {
-            [_keyWindow removeFromSuperview];
-            _keyWindow = nil;
-        }
+        _KBackgroundView = nil;
+        _overlayWindow.hidden = YES;
+        _overlayWindow = nil;
     }];
 }
 
 #pragma mark - Action
 - (void)alertActionButtonClicked:(UIButton *)sender
 {
+    [self dismiss];
     if (_touchDoneBlock) {
         _touchDoneBlock(sender.tag);
     }
@@ -353,7 +225,9 @@
 - (void)tap:(UITapGestureRecognizer *)sender
 {
     CGPoint locationTouch = [sender locationInView:self];
+    
     if (!CGRectContainsPoint(_KBackgroundView.frame, locationTouch)) {
+        [self dismiss];
         if (_touchDoneBlock) {
             _touchDoneBlock(10000);
         }
@@ -366,12 +240,5 @@
     NSLog(@"\nLXQAlertActionView Dealloc");
 }
 #endif
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end
